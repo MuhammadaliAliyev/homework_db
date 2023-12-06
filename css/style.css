@@ -1,0 +1,27 @@
+/* styles.css */
+
+/* Apply a bit of styling to the unordered list */
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Style each list item */
+li {
+    margin-bottom: 5px; /* Adjust as needed */
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+}
+
+/* Add some spacing between each student's information */
+li:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+/* Optional: Add hover effect for better user experience */
+li:hover {
+    background-color: #e0e0e0;
+    transition: background-color 0.3s ease;
+}
