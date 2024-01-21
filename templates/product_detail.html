@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ product.name }} - Blog Detail</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <style>
+        body{
+            background-color: #f2f2f2;
+            margin: 15px 20px;
+        }
+        h2{
+            text-align: center;
+        }
+        p{
+        }
+        .change{
+            background-color: green;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        .change a{
+            color: white;
+            text-decoration: none;
+        }
+        .change:hover{
+            background-color: #00ff00;
+        }
+        .delete{
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        .delete a{
+            color: white;
+            text-decoration: none;
+        }
+        .delete:hover{
+            background-color: lightcoral;        
+        }
+    </style>
+</head>
+<body>
+    <h2>{{ product.name }}</h2>
+    <p>{{ product.description }}</p>
+    <button type="submit" class="change"><a href="{% url 'edit_product' product.pk %}">Edit</a></button>
+    <button type="submit" class="delete"><a href="{% url 'delete_product' product.pk %}">Delete</a></button> <br>
+     
+    <a href="{% url 'product_list' %}">Back to Blogs Home Page</a>
+</body>
+</html>

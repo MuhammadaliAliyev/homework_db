@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Website</title>
+    <!-- Add Bootstrap CSS link here -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .change{
+            background-color: green;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        .change a{
+            color: white;
+            text-decoration: none;
+        }
+        .change:hover{
+            background-color: #00ff00;
+        }
+        .delete{
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        .delete a{
+            color: white;
+            text-decoration: none;
+        }
+        .delete:hover{
+            background-color: lightcoral;        
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Today's New Blogs</h1>
+        <div class="row">
+            {% for product in products %}
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ product.name }}</h5>
+                            <p class="card-text">{{ product.short_description }}</p>
+                            <a href="{% url 'product_detail' product.pk %}">Batafsil
+                            </a> <br><br>
+                            <button type="submit" class="change"><a href="{% url 'edit_product' product.pk %}">Edit</a></button>
+                            <button type="submit" class="delete"><a href="{% url 'delete_product' product.pk %}">Delete</a></button> <br>
+                            <small class="card-text">Created at: {{ product.created_at }}</small> <br>
+                            <small class="card-text">Updated at: {{ product.updated_at }}</small>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+ 
+    <!-- Add Bootstrap JS and jQuery scripts here (if needed) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
