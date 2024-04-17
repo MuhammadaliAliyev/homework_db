@@ -2,6 +2,8 @@
 
 Clone the repository:<br>
 `git clone https://github.com/MuhammadaliAliyev/django_projects/` <br><br>
+Change branch:<br>
+`git checkout branch_name`<br><br>
 Create a virtual environment and activate it (recommended):<br>
 `python -m venv venv  # Python 3`<br>
 `source venv/bin/activate  # Linux/macOS`<br>
