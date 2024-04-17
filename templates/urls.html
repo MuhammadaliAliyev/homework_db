@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+    .text{
+        color: green;
+        font-weight: bold;
+    }
+    </style>
+</head>
+<body>
+    
+    <div class="container mt-5">
+        
+        <form class="col-6 mx-auto card p-3 shadow-lg" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <br>
+            <h3>BookMark Manager</h3>
+            <hr>
+            <div class="form-group">
+            <label for="exampleInputEmail1">Website Name</label>
+            <input name="name" type="text" class="form-control"  required>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">URL </label>
+                <input name="url" type="url" class="form-control" required>
+            </div>
+            
+            <button type="submit" class="btn btn-success">Add URL</button>
+        </form>
+    
+        <hr>
+        <div class="class mt-5">
+            <form action="">
+    
+            <div class="max-auto col-6">
+            </form>
+            </div>
+        </div>
+        <table class="table mt-5">
+            <thead>
+    
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Website Name</th>
+                <th scope="col"> URL</th>
+                <th scope="col">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+                {% for url in urls %}
+                <tr>
+                    <th scope="row">{{forloop.counter}}</th>
+                    <td>{{url.name}}</td>
+                    <td><a href="{{url.url}}" target="_blank" class="btn btn-warning">View</a></td>
+                        <td>
+                            <a href="/delete/{{url.id}}" class="btn btn-danger m-2">Delete</a>
+                            <a href="/update/{{url.id }}" class="btn btn-success">Update</a>
+                        </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+            
+    </div>
+    
+</body>
+</html>
