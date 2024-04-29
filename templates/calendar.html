@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="clearfix">
+                        <a class="btn btn-info left" href="{% url 'calendar' %}?{{ prev_month }}"> Previous Month </a>
+                        <h4>Calendar</h4>
+                        <a class="btn btn-info right" href="{% url 'calendar' %}?{{ next_month }}"> Next Month </a>
+                        <a class="btn btn-primary right new" role="button" href="{% url 'event_new' %}"> New Event </a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div id="calendar">{{calendar}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

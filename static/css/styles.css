@@ -1,0 +1,102 @@
+
+.container {
+    margin-top: 10px; /* Adds some space at the top */
+}
+
+.card {
+    border-radius: 10px; /* Smoothens the card corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+}
+
+.card-header {
+    background-color: #f5f5f5; /* Light gray header */
+    border-bottom: 1px solid #ddd; /* Divider line */
+    padding: 15px; /* Padding for spacing */
+}
+
+.card-body {
+    padding: 15px; /* More padding for inner content */
+}
+
+.card h4 {
+    margin: 0; /* Removes default margin for h4 */
+    font-size: 2rem; /* Adjusts the font size */
+    text-align: center; /* Centers the text */
+    display: inline-block; /* Aligns the text in the center */
+}
+
+
+.calendar {
+width: 98%;
+margin: auto;
+font-size: 13px;
+}
+
+.calendar tr, .calendar td {
+border: 1px solid black;
+}
+
+.calendar th {
+padding: 10px;
+text-align: center;
+font-size: 18px;
+}
+
+.calendar td {
+width: 150px;
+height: 100px;
+padding: 20px 0px 0px 5px;
+}
+
+.month {
+font-size: 25px;
+}
+
+.date {
+font-size: 20px;
+}
+
+ul {
+height: 100%;
+padding: 0px 5px 0px 20px;
+}
+
+a {
+color: #17a2b8;
+}
+
+.left {
+float: left;
+}
+
+.right {
+float: right;
+}
+
+.new {
+margin-right: 30px;}
+
+/* .btn {
+outline: none;
+color: black;
+background-color: transparent;
+box-shadow: 0 0 0 0;
+} */
+
+.clearfix {
+margin: 15px;
+text-align: center;
+}
+
+.form {
+margin: auto;
+}
+
+.form input, .form select, .form textarea {
+border-radius: 5px;
+border: 1px solid #17a2b8;
+outline: none;
+background: none;
+padding: 5px;
+width: 100%;
+}
