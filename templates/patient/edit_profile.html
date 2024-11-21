@@ -6,7 +6,10 @@
     <form method="POST">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">Save Changes</button>
+        <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+            <button type="submit" class="btn btn-success">Save changes</button>
+            <a href="{% url 'dashboard' %}"><button class="btn btn-warning" style="background-color: red;">Back</button></a>
+        </div>
     </form>
 </div>
 {% endblock %}
