@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="text-center py-12">
+    <h1 class="text-4xl font-bold text-gray-800 mb-6">Welcome to Hospital Management System</h1>
+    <p class="text-xl text-gray-600 mb-8">Providing quality healthcare services with modern technology</p>
+    
+    {% if not user.is_authenticated %}
+        <div class="space-x-4">
+            <a href="{% url 'login' %}" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700">Login</a>
+            <a href="{% url 'patient_signup' %}" class="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700">Register as Patient</a>
+            <a href="{% url 'doctor_signup' %}" class="bg-purple-600 text-white px-6 py-3 rounded-lg hover:bg-purple-700">Register as Doctor</a>
+        </div>
+    {% endif %}
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+    <div class="bg-white p-6 rounded-lg shadow-md">
+        <h2 class="text-xl font-bold text-gray-800 mb-4">For Patients</h2>
+        <ul class="list-disc list-inside space-y-2 text-gray-600">
+            <li>Easy appointment booking</li>
+            <li>Access to medical history</li>
+            <li>View prescriptions</li>
+            <li>Track appointments</li>
+        </ul>
+    </div>
+
+    <div class="bg-white p-6 rounded-lg shadow-md">
+        <h2 class="text-xl font-bold text-gray-800 mb-4">For Doctors</h2>
+        <ul class="list-disc list-inside space-y-2 text-gray-600">
+            <li>Manage patient records</li>
+            <li>Schedule management</li>
+            <li>Digital prescriptions</li>
+            <li>Patient history access</li>
+        </ul>
+    </div>
+
+    <div class="bg-white p-6 rounded-lg shadow-md">
+        <h2 class="text-xl font-bold text-gray-800 mb-4">Features</h2>
+        <ul class="list-disc list-inside space-y-2 text-gray-600">
+            <li>Secure data storage</li>
+            <li>Easy communication</li>
+            <li>Modern interface</li>
+            <li>24/7 support</li>
+        </ul>
+    </div>
+</div>
+{% endblock %}

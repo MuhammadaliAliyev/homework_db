@@ -1,0 +1,88 @@
+<!-- templates/base.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Hospital Management System{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <!-- Navigation -->
+    <nav class="bg-blue-600 text-white p-4 shadow-lg">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="{% url 'home' %}" class="text-2xl font-bold">Hospital MS</a>
+            <div class="space-x-4">
+                {% if user.is_authenticated %}
+                    <a href="{% url 'dashboard' %}" class="hover:text-gray-200">Dashboard</a>
+                    {% if user.userprofile.user_type == 'patient' %}
+                        <a href="{% url 'appointment_create' %}" class="hover:text-gray-200">Book Appointment</a>
+                    {% endif %}
+                    <span class="text-gray-300">|</span>
+                    <a href="#">
+                        <form method="POST" action="{% url 'logout' %}">
+                        {% csrf_token %}
+                            <button type="submit">Logout</button>
+                        </form>
+                    </a>
+                    <!-- <a href="{% url 'logout' %}" class="hover:text-gray-200">Logout</a> -->
+                {% else %}
+                    <a href="{% url 'login' %}" class="hover:text-gray-200"><button>Login</button></a>
+                    <div class="inline-block relative group">
+                        <button class="hover:text-gray-200">Sign Up</button>
+                        <div class="absolute hidden group-hover:block w-48 right-0 mt-2 bg-white text-gray-800 shadow-lg rounded-lg">
+                            <a href="{% url 'patient_signup' %}" class="block px-4 py-2 hover:bg-gray-100">Patient Sign Up</a>
+                            <a href="{% url 'doctor_signup' %}" class="block px-4 py-2 hover:bg-gray-100">Doctor Sign Up</a>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="mb-4 p-4 rounded-lg {% if message.tags == 'success' %}bg-green-100 text-green-700{% else %}bg-red-100 text-red-700{% endif %}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+        
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8 mt-auto">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Hospital Management System</h3>
+                    <p class="text-gray-400">Providing quality healthcare services</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="{% url 'home' %}" class="text-gray-400 hover:text-white">Home</a></li>
+                        {% if user.is_authenticated %}
+                            <li><a href="{% url 'dashboard' %}" class="text-gray-400 hover:text-white">Dashboard</a></li>
+                        {% else %}
+                            <li><a href="{% url 'login' %}" class="text-gray-400 hover:text-white">Login</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Contact</h3>
+                    <p class="text-gray-400">Email: info@hospital.com</p>
+                    <p class="text-gray-400">Phone: (123) 456-7890</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+<script src="{% static 'js/main.js' %}"></script>
+
+</html>
